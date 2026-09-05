@@ -1,0 +1,4 @@
+warehouse_id,warehouse_name,location,capacity,status
+WH001,Chennai Central Warehouse,Chennai India,10000,operational
+WH002,Bengaluru Distribution Center,Bengaluru India,8000,operational
+WH003,Hyderabad Regional Warehouse,Hyderabad India,7000,operational

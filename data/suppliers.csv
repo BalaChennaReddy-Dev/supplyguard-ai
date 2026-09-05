@@ -1,0 +1,6 @@
+supplier_id,supplier_name,location,reliability_score,status
+SUP001,Alpha Components Ltd,Chennai India,94,active
+SUP002,Global Electronics Pvt Ltd,Bengaluru India,88,active
+SUP003,Precision Parts Manufacturing,Pune India,91,active
+SUP004,Vertex Industrial Systems,Hyderabad India,86,active
+SUP005,Omega Materials Corporation,Mumbai India,82,active

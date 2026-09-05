@@ -1,0 +1,11 @@
+product_id,product_name,category,supplier_id,unit_cost
+PROD001,Industrial Control Board,Electronics,SUP001,12500
+PROD002,Power Supply Module,Electronics,SUP001,6800
+PROD003,Temperature Sensor,IoT,SUP002,2400
+PROD004,Pressure Sensor,IoT,SUP002,3100
+PROD005,Motor Controller,Automation,SUP003,18500
+PROD006,Servo Motor,Automation,SUP003,22000
+PROD007,Hydraulic Valve,Mechanical,SUP004,9500
+PROD008,Industrial Pump,Mechanical,SUP004,28500
+PROD009,Steel Mounting Bracket,Hardware,SUP005,1800
+PROD010,Machine Housing,Hardware,SUP005,7600
