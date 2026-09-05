@@ -1,0 +1,15 @@
+{
+  "event_type": "carrier_delay",
+  "supplier_name": null,
+  "location": "Bengaluru",
+  "shipment_id": "SHIP005",
+  "warehouse_name": "Bengaluru Distribution Center",
+  "start_date": null,
+  "duration_days": 5,
+  "affected_products": [
+    "Motor Controller"
+  ],
+  "description": "Shipment SHIP005 containing Motor Controllers to the Bengaluru Distribution Center is delayed by approximately five days.",
+  "confidence": 0.9,
+  "missing_information": []
+}

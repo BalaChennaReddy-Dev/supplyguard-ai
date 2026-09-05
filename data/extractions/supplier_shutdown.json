@@ -1,0 +1,19 @@
+{
+  "event_type": "production_shutdown",
+  "supplier_name": "Alpha Components Ltd",
+  "location": "Chennai",
+  "shipment_id": null,
+  "warehouse_name": null,
+  "start_date": "2026-09-05",
+  "duration_days": 10,
+  "affected_products": [
+    "Industrial Control Board",
+    "Power Supply Module"
+  ],
+  "description": "Alpha Components Ltd has temporarily shut down its Chennai facility due to equipment failure.",
+  "confidence": 0.95,
+  "missing_information": [
+    "Specific shipment IDs were not provided",
+    "Specific warehouse was not provided"
+  ]
+}

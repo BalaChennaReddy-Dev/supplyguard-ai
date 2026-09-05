@@ -1,0 +1,16 @@
+{
+  "event_type": "warehouse_incident",
+  "supplier_name": null,
+  "location": "Bengaluru",
+  "shipment_id": null,
+  "warehouse_name": "Bengaluru Distribution Center",
+  "start_date": "2026-09-06",
+  "duration_days": 3,
+  "affected_products": [],
+  "description": "Water leakage has affected a section of the Bengaluru Distribution Center. Inventory in the affected section may be temporarily unavailable.",
+  "confidence": 0.95,
+  "missing_information": [
+    "The exact affected inventory section was not identified",
+    "Specific products affected were not identified"
+  ]
+}

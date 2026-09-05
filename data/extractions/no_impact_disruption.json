@@ -1,0 +1,15 @@
+{
+  "event_type": "production_shutdown",
+  "supplier_name": "Omega Materials Corporation",
+  "location": "Mumbai",
+  "shipment_id": null,
+  "warehouse_name": null,
+  "start_date": "2026-09-05",
+  "duration_days": 7,
+  "affected_products": [],
+  "description": "Omega Materials Corporation in Mumbai has reported a seven-day disruption, but the affected product line is still under review.",
+  "confidence": 0.9,
+  "missing_information": [
+    "Specific affected product was not identified"
+  ]
+}
