@@ -3,6 +3,10 @@ from engine.priority import OrderPriorityEngine
 
 
 def main():
+    print("=" * 75)
+    print("SUPPLYGUARD AI - ORDER PRIORITY TEST")
+    print("=" * 75)
+
     engine = OrderPriorityEngine()
 
     affected_orders = [
@@ -10,37 +14,40 @@ def main():
             "order_id": "ORD013",
             "customer_id": "CUST002",
             "customer_name": "Vertex Robotics",
+            "customer_type": "enterprise",
+            "service_level": "high",
             "product_id": "PROD001",
+            "warehouse_id": "WH001",
             "quantity": 50,
+            "fulfillable_quantity": 10,
             "shortage_quantity": 40,
             "required_date": "2026-09-10",
-            "service_level": "high",
-            "customer_type": "enterprise",
+            "order_date": "2026-09-04",
         },
         {
             "order_id": "ORD007",
             "customer_id": "CUST007",
             "customer_name": "FutureTech Manufacturing",
+            "customer_type": "enterprise",
+            "service_level": "high",
             "product_id": "PROD005",
+            "warehouse_id": "WH002",
             "quantity": 60,
+            "fulfillable_quantity": 40,
             "shortage_quantity": 20,
             "required_date": "2026-09-09",
-            "service_level": "high",
-            "customer_type": "enterprise",
+            "order_date": "2026-09-03",
         },
     ]
 
     results = engine.prioritize(
         affected_orders,
-        analysis_date="2026-09-05"
+        analysis_date="2026-09-05",
     )
 
-    print("\n" + "=" * 75)
-    print("SUPPLYGUARD AI - ORDER PRIORITY TEST")
-    print("=" * 75)
-
     for result in results:
-        print("\nORDER")
+        print()
+        print("ORDER")
         print("-" * 75)
 
         print(
@@ -59,50 +66,62 @@ def main():
         )
 
         print(
-            f"Shortage: {result['shortage']} / "
+            f"Shortage: "
+            f"{result['shortage_quantity']} / "
             f"{result['quantity']}"
         )
 
-        print("\nScore breakdown:")
+        print()
+        print("Score breakdown:")
 
-        for factor, value in result["score_breakdown"].items():
-            print(f"  {factor}: {value}")
+        for key, value in result["score_breakdown"].items():
+            print(f"  {key}: {value}")
 
-        print("\nReasons:")
+        print()
+        print("Reasons:")
 
         for reason in result["reasons"]:
             print(f"  • {reason}")
 
-    # Basic validation
+    # ------------------------------------------------------------------
+    # Assertions
+    # ------------------------------------------------------------------
+
     assert len(results) == 2
 
-    # Verify actual shortage values propagated correctly.
+    # Verify shortage values.
     shortages = {
-        result["order_id"]: result["shortage"]
+        result["order_id"]: result["shortage_quantity"]
         for result in results
     }
 
     assert shortages["ORD013"] == 40
     assert shortages["ORD007"] == 20
 
-    # Scores must be between 0 and 100.
+    # Verify operational fields are preserved for Phase 7.
+    for result in results:
+        assert "warehouse_id" in result
+        assert "product_id" in result
+        assert "quantity" in result
+        assert "fulfillable_quantity" in result
+        assert "shortage_quantity" in result
+        assert "required_date" in result
+        assert "order_date" in result
+
+    # Verify scores are valid.
     assert all(
         0 <= result["priority_score"] <= 100
         for result in results
     )
 
-    # Priority must always be one of the supported levels.
+    # Verify priority labels.
     assert all(
-        result["priority"] in {
-            "CRITICAL",
-            "HIGH",
-            "MEDIUM",
-            "LOW",
-        }
+        result["priority"]
+        in {"CRITICAL", "HIGH", "MEDIUM", "LOW"}
         for result in results
     )
 
-    # Results must be sorted by descending priority score.
+    # Verify deterministic ranking.
     scores = [
         result["priority_score"]
         for result in results
@@ -110,13 +129,23 @@ def main():
 
     assert scores == sorted(
         scores,
-        reverse=True
+        reverse=True,
     )
 
-    print("\n" + "=" * 75)
+    # Verify expected ranking.
+    assert results[0]["order_id"] == "ORD013"
+    assert results[1]["order_id"] == "ORD007"
+
+    # Verify expected scores.
+    assert results[0]["priority_score"] == 79.0
+    assert results[1]["priority_score"] == 78.0
+
+    print()
+    print("=" * 75)
     print("✅ PRIORITY TEST PASSED")
     print("=" * 75)
 
 
 if __name__ == "__main__":
     main()
+
