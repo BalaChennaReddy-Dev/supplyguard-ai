@@ -1,0 +1,341 @@
+{
+  "event_type": "production_shutdown",
+  "impact_found": true,
+  "impact_status": "confirmed_impact",
+  "reason": "The disruption is associated with operational dependencies and one or more customer orders have insufficient available inventory.",
+  "supplier": {
+    "supplier_id": "SUP001",
+    "supplier_name": "Alpha Components Ltd",
+    "location": "Chennai India",
+    "reliability_score": 94,
+    "status": "active"
+  },
+  "products": [
+    {
+      "product_id": "PROD001",
+      "product_name": "Industrial Control Board",
+      "category": "Electronics",
+      "supplier_id": "SUP001",
+      "unit_cost": 12500
+    },
+    {
+      "product_id": "PROD002",
+      "product_name": "Power Supply Module",
+      "category": "Electronics",
+      "supplier_id": "SUP001",
+      "unit_cost": 6800
+    }
+  ],
+  "warehouse": null,
+  "affected_shipments": [
+    {
+      "shipment_id": "SHIP001",
+      "supplier_id": "SUP001",
+      "product_id": "PROD001",
+      "warehouse_id": "WH001",
+      "quantity": 100,
+      "original_expected_date": "2026-09-08",
+      "projected_expected_date": null,
+      "risk_status": "potential_delay"
+    },
+    {
+      "shipment_id": "SHIP002",
+      "supplier_id": "SUP001",
+      "product_id": "PROD002",
+      "warehouse_id": "WH001",
+      "quantity": 150,
+      "original_expected_date": "2026-09-09",
+      "projected_expected_date": null,
+      "risk_status": "potential_delay"
+    }
+  ],
+  "inventory_summary": [
+    {
+      "warehouse_id": "WH001",
+      "product_id": "PROD001",
+      "quantity": 120,
+      "reserved_quantity": 80,
+      "available_quantity": 40
+    },
+    {
+      "warehouse_id": "WH001",
+      "product_id": "PROD002",
+      "quantity": 180,
+      "reserved_quantity": 70,
+      "available_quantity": 110
+    },
+    {
+      "warehouse_id": "WH002",
+      "product_id": "PROD001",
+      "quantity": 60,
+      "reserved_quantity": 40,
+      "available_quantity": 20
+    }
+  ],
+  "order_summary": [
+    {
+      "warehouse_id": "WH001",
+      "product_id": "PROD001",
+      "ordered_quantity": 80,
+      "available_quantity": 40,
+      "shortage_quantity": 40
+    },
+    {
+      "warehouse_id": "WH001",
+      "product_id": "PROD002",
+      "ordered_quantity": 80,
+      "available_quantity": 110,
+      "shortage_quantity": 0
+    },
+    {
+      "warehouse_id": "WH002",
+      "product_id": "PROD001",
+      "ordered_quantity": 20,
+      "available_quantity": 20,
+      "shortage_quantity": 0
+    }
+  ],
+  "at_risk_orders": [
+    {
+      "order_id": "ORD013",
+      "customer_id": "CUST002",
+      "customer_name": "Vertex Robotics",
+      "customer_type": "enterprise",
+      "service_level": "high",
+      "product_id": "PROD001",
+      "warehouse_id": "WH001",
+      "quantity": 50,
+      "fulfillable_quantity": 10,
+      "shortage_quantity": 40,
+      "required_date": "2026-09-10",
+      "order_date": "2026-09-04"
+    }
+  ],
+  "potentially_affected_orders": [],
+  "affected_customers": [
+    {
+      "customer_id": "CUST002",
+      "customer_name": "Vertex Robotics",
+      "customer_type": "enterprise",
+      "service_level": "high"
+    }
+  ],
+  "prioritized_orders": [
+    {
+      "order_id": "ORD013",
+      "customer_id": "CUST002",
+      "customer_name": "Vertex Robotics",
+      "customer_type": "enterprise",
+      "service_level": "high",
+      "product_id": "PROD001",
+      "warehouse_id": "WH001",
+      "quantity": 50.0,
+      "fulfillable_quantity": 10.0,
+      "shortage_quantity": 40.0,
+      "required_date": "2026-09-10",
+      "order_date": "2026-09-04",
+      "days_until_required": 5,
+      "priority_score": 79.0,
+      "priority": "HIGH",
+      "score_breakdown": {
+        "delivery_urgency": 24.5,
+        "service_level": 24.0,
+        "shortage_severity": 22.5,
+        "customer_type": 8.0
+      },
+      "reasons": [
+        "Required delivery date is approaching.",
+        "Customer has HIGH service level.",
+        "40 units are currently unavailable.",
+        "Customer is classified as ENTERPRISE."
+      ]
+    }
+  ],
+  "impact_graph": {
+    "nodes": [
+      {
+        "id": "SUP001",
+        "type": "supplier",
+        "label": "Alpha Components Ltd",
+        "location": "Chennai India",
+        "reliability_score": 94,
+        "status": "active"
+      },
+      {
+        "id": "PROD001",
+        "type": "product",
+        "label": "Industrial Control Board",
+        "category": "Electronics",
+        "unit_cost": 12500
+      },
+      {
+        "id": "PROD002",
+        "type": "product",
+        "label": "Power Supply Module",
+        "category": "Electronics",
+        "unit_cost": 6800
+      },
+      {
+        "id": "WH001",
+        "type": "warehouse",
+        "label": "Chennai Central Warehouse",
+        "location": "Chennai India",
+        "capacity": 10000,
+        "status": "operational"
+      },
+      {
+        "id": "SHIP001",
+        "type": "shipment",
+        "label": "SHIP001",
+        "quantity": 100,
+        "risk_status": "potential_delay",
+        "original_expected_date": "2026-09-08",
+        "projected_expected_date": null
+      },
+      {
+        "id": "SHIP002",
+        "type": "shipment",
+        "label": "SHIP002",
+        "quantity": 150,
+        "risk_status": "potential_delay",
+        "original_expected_date": "2026-09-09",
+        "projected_expected_date": null
+      },
+      {
+        "id": "INV:WH001:PROD001",
+        "type": "inventory",
+        "label": "WH001 / PROD001",
+        "warehouse_id": "WH001",
+        "product_id": "PROD001",
+        "quantity": 120,
+        "reserved_quantity": 80,
+        "available_quantity": 40
+      },
+      {
+        "id": "INV:WH001:PROD002",
+        "type": "inventory",
+        "label": "WH001 / PROD002",
+        "warehouse_id": "WH001",
+        "product_id": "PROD002",
+        "quantity": 180,
+        "reserved_quantity": 70,
+        "available_quantity": 110
+      },
+      {
+        "id": "WH002",
+        "type": "warehouse",
+        "label": "Bengaluru Distribution Center",
+        "location": "Bengaluru India",
+        "capacity": 8000,
+        "status": "operational"
+      },
+      {
+        "id": "INV:WH002:PROD001",
+        "type": "inventory",
+        "label": "WH002 / PROD001",
+        "warehouse_id": "WH002",
+        "product_id": "PROD001",
+        "quantity": 60,
+        "reserved_quantity": 40,
+        "available_quantity": 20
+      },
+      {
+        "id": "ORD013",
+        "type": "order",
+        "label": "ORD013",
+        "priority": "HIGH",
+        "priority_score": 79.0,
+        "quantity": 50.0,
+        "fulfillable_quantity": 10.0,
+        "shortage_quantity": 40.0,
+        "required_date": "2026-09-10"
+      },
+      {
+        "id": "CUST002",
+        "type": "customer",
+        "label": "Vertex Robotics",
+        "customer_type": "enterprise",
+        "service_level": "high"
+      }
+    ],
+    "edges": [
+      {
+        "source": "SUP001",
+        "target": "PROD001",
+        "relationship": "SUPPLIES"
+      },
+      {
+        "source": "SUP001",
+        "target": "PROD002",
+        "relationship": "SUPPLIES"
+      },
+      {
+        "source": "PROD001",
+        "target": "SHIP001",
+        "relationship": "SHIPPED_AS"
+      },
+      {
+        "source": "SHIP001",
+        "target": "WH001",
+        "relationship": "DELIVERS_TO"
+      },
+      {
+        "source": "PROD002",
+        "target": "SHIP002",
+        "relationship": "SHIPPED_AS"
+      },
+      {
+        "source": "SHIP002",
+        "target": "WH001",
+        "relationship": "DELIVERS_TO"
+      },
+      {
+        "source": "WH001",
+        "target": "INV:WH001:PROD001",
+        "relationship": "STORES"
+      },
+      {
+        "source": "INV:WH001:PROD001",
+        "target": "PROD001",
+        "relationship": "STOCKS"
+      },
+      {
+        "source": "WH001",
+        "target": "INV:WH001:PROD002",
+        "relationship": "STORES"
+      },
+      {
+        "source": "INV:WH001:PROD002",
+        "target": "PROD002",
+        "relationship": "STOCKS"
+      },
+      {
+        "source": "WH002",
+        "target": "INV:WH002:PROD001",
+        "relationship": "STORES"
+      },
+      {
+        "source": "INV:WH002:PROD001",
+        "target": "PROD001",
+        "relationship": "STOCKS"
+      },
+      {
+        "source": "PROD001",
+        "target": "ORD013",
+        "relationship": "FULFILLS"
+      },
+      {
+        "source": "WH001",
+        "target": "ORD013",
+        "relationship": "SERVES"
+      },
+      {
+        "source": "ORD013",
+        "target": "CUST002",
+        "relationship": "PLACED_BY"
+      }
+    ],
+    "node_count": 12,
+    "edge_count": 15
+  }
+}
