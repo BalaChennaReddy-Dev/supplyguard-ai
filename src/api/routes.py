@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+﻿from fastapi import APIRouter, HTTPException
 
 from api.schemas import AnalyzeRequest
 from engine.orchestrator import SupplyGuardOrchestrator
@@ -21,7 +21,15 @@ def analyze_disruption(request: AnalyzeRequest):
             status_code=400,
             detail=str(exc),
         ) from exc
-    except Exception as exc:
+    except RuntimeError as exc:
+        if "quota has been exhausted" in str(exc).lower():
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "Gemini API quota is temporarily unavailable. "
+                    "Please try again after the quota resets."
+                ),
+            ) from exc
         raise HTTPException(
             status_code=500,
             detail="Disruption analysis failed.",

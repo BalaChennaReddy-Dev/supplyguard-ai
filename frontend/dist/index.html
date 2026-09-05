@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupplyGuard AI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+<div id="app">
+
+    <header class="header">
+        <div>
+            <h1>SupplyGuard AI</h1>
+            <p>AI-powered Supply Chain Disruption Response Assistant</p>
+        </div>
+        <div class="system-status">
+            <span class="status-dot"></span>
+            System Ready
+        </div>
+    </header>
+
+    <!-- Disruption Input -->
+    <section class="panel analysis-panel">
+        <div class="section-header">
+            <div>
+                <h2>Analyze Disruption</h2>
+                <p class="section-description">
+                    Enter an unstructured supplier, carrier, or warehouse disruption notice.
+                </p>
+            </div>
+        </div>
+
+        <textarea
+            id="notice"
+            placeholder="Example: Alpha Components Ltd in Chennai is shutting down for 10 days starting September 5, 2026 due to equipment failure..."
+        ></textarea>
+
+        <div class="analysis-actions">
+            <button id="analyzeBtn">Analyze Disruption</button>
+            <span id="status"></span>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="hidden">
+
+        <!-- Impact Overview -->
+        <section class="panel">
+            <div class="section-header">
+                <div>
+                    <h2>Impact Overview</h2>
+                    <p class="section-description">
+                        Deterministic analysis of operational and customer impact.
+                    </p>
+                </div>
+            </div>
+
+            <div id="impactMetrics" class="results-grid"></div>
+        </section>
+
+        <!-- Disruption Details -->
+        <section class="panel">
+            <h2>Disruption Details</h2>
+            <div id="disruptionDetails" class="details-grid"></div>
+        </section>
+
+        <!-- Supply Chain Impact -->
+        <section class="panel">
+            <h2>Supply Chain Impact</h2>
+            <div id="impactDetails" class="results-grid"></div>
+        </section>
+
+        <!-- Recommended Response -->
+        <section class="panel">
+            <div class="section-header">
+                <div>
+                    <h2>Recommended Response</h2>
+                    <p class="section-description">
+                        Deterministic recommendation generated from operational rules and available evidence.
+                    </p>
+                </div>
+            </div>
+
+            <div id="recommendation"></div>
+        </section>
+
+        <!-- Alternative Options -->
+        <section class="panel">
+            <h2>Response Options &amp; Trade-offs</h2>
+            <div id="responseOptions"></div>
+        </section>
+
+        <!-- Prioritized Orders -->
+        <section class="panel">
+            <div class="section-header">
+                <div>
+                    <h2>Prioritized Orders</h2>
+                    <p class="section-description">
+                        Orders ranked according to delivery urgency, shortage severity,
+                        service level, and customer importance.
+                    </p>
+                </div>
+            </div>
+
+            <div id="orders"></div>
+        </section>
+
+        <!-- Impact Graph -->
+        <section class="panel">
+            <div class="section-header">
+                <div>
+                    <h2>Impact Graph</h2>
+                    <p class="section-description">
+                        Trace the disruption through the supply chain:
+                        Supplier → Product → Shipment → Warehouse → Inventory → Order → Customer
+                    </p>
+                </div>
+            </div>
+
+            <div id="impactGraph" class="graph-container"></div>
+        </section>
+
+        <!-- Evidence -->
+        <section class="panel">
+            <div class="section-header">
+                <div>
+                    <h2>Evidence &amp; Traceability</h2>
+                    <p class="section-description">
+                        Every operational impact and recommendation is backed by source records.
+                    </p>
+                </div>
+            </div>
+
+            <div id="evidence" class="evidence"></div>
+        </section>
+
+    </section>
+
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
