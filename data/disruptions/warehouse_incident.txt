@@ -1,0 +1,21 @@
+Subject: Warehouse Incident – Bengaluru Distribution Center
+
+Dear Operations Team,
+
+A water leakage incident has temporarily restricted access to a section
+of the Bengaluru Distribution Center.
+
+The affected section is expected to remain unavailable for approximately
+3 days beginning September 6, 2026.
+
+Inventory stored in the affected section may not be available for outbound
+fulfilment during this period.
+
+Warehouse operations are assessing the affected inventory and will provide
+a further update.
+
+Please review open customer orders assigned to this warehouse and identify
+orders that may require stock reallocation.
+
+Regards,
+Warehouse Operations

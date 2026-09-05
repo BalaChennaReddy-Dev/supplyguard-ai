@@ -1,0 +1,18 @@
+Subject: Carrier Delay Notification – Shipment SHIP005
+
+Dear Logistics Team,
+
+Our transportation partner has notified us of a regional road disruption
+affecting the shipment currently identified as SHIP005.
+
+The shipment is expected to arrive approximately 5 days later than the
+original expected delivery date.
+
+The shipment contains Motor Controllers and is currently in transit to the
+Bengaluru Distribution Center.
+
+Please assess whether this delay will affect any committed customer orders
+and identify possible alternatives.
+
+Regards,
+Logistics Coordination Team
