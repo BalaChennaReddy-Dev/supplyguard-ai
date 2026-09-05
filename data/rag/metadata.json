@@ -1,0 +1,86 @@
+[
+  {
+    "chunk_id": "R01",
+    "rule_id": "R01",
+    "title": "Full Reallocation Preferred",
+    "content": "## R01 — Full Reallocation Preferred\n\nIf another warehouse has enough available inventory to completely cover an affected order's shortage, reallocation should be considered the preferred response.\n\nReason:\n\n* Resolves the shortage using existing inventory.\n* Avoids waiting for disrupted replenishment.\n* Provides a deterministic fulfillment path.\n\nTrade-off:\n\n* Reduces available inventory at the source warehouse.\n* May create risk for orders depending on that inventory.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R02",
+    "rule_id": "R02",
+    "title": "Partial Reallocation",
+    "content": "## R02 — Partial Reallocation\n\nIf another warehouse has available inventory but not enough to cover the entire shortage, partial reallocation may be considered.\n\nThe system must explicitly show:\n\n* Available quantity.\n* Quantity transferred.\n* Remaining shortage.\n* Source warehouse.\n\nPartial reallocation must not be represented as full resolution.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R03",
+    "rule_id": "R03",
+    "title": "Expedite Inbound Shipment",
+    "content": "## R03 — Expedite Inbound Shipment\n\nExpediting may be considered when an affected product has an in-transit shipment.\n\nThe system should compare:\n\n* Customer required date.\n* Current expected shipment date.\n* Projected date after disruption.\n* Quantity available in the shipment.\n\nExpediting introduces additional transportation cost.\n\nThe system must not invent an exact expedite cost unless a documented cost rule exists.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R04",
+    "rule_id": "R04",
+    "title": "Part-Ship",
+    "content": "## R04 — Part-Ship\n\nPart-shipping may be considered when some quantity is currently fulfillable.\n\nThe system must show:\n\n* Total order quantity.\n* Quantity available now.\n* Quantity remaining.\n* Percentage of order covered.\n\nPart-shipping does not resolve the remaining shortage.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R05",
+    "rule_id": "R05",
+    "title": "Customer Notification",
+    "content": "## R05 — Customer Notification\n\nCustomer notification should be considered when an order cannot currently be fulfilled in full.\n\nNotification is a communication recommendation only.\n\nThe system must not automatically send a message.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R06",
+    "rule_id": "R06",
+    "title": "Human Approval",
+    "content": "## R06 — Human Approval\n\nEvery operational recommendation requires human approval.\n\nSupplyGuard AI must never:\n\n* Move inventory automatically.\n* Expedite a shipment automatically.\n* Change an order automatically.\n* Send customer communications automatically.\n\nThe system provides decision support only.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R07",
+    "rule_id": "R07",
+    "title": "Evidence Required",
+    "content": "## R07 — Evidence Required\n\nEvery recommendation must contain traceable evidence.\n\nEvidence should identify:\n\n* Source dataset.\n* Record identifier.\n* Relevant operational fact.\n\nExamples:\n\n* `inventory.csv → WH002/PROD001`\n* `shipments.csv → SHIP001`\n* `orders.csv → ORD013`\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R08",
+    "rule_id": "R08",
+    "title": "No Impact",
+    "content": "## R08 — No Impact\n\nIf a disruption notice cannot be mapped to relevant operational data, the system must not invent an impact.\n\nThe result should be:\n\n`NO IMPACT`\n\nwith an explanation that no matching operational dependency was found.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R09",
+    "rule_id": "R09",
+    "title": "Ambiguous Disruption",
+    "content": "## R09 — Ambiguous Disruption\n\nIf critical information is missing or ambiguous, the system should identify the missing information and avoid making unsupported operational recommendations.\n\nExamples:\n\n* Unknown supplier.\n* Unknown product.\n* Unknown shipment.\n* Unknown warehouse.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R10",
+    "rule_id": "R10",
+    "title": "Trade-Off Transparency",
+    "content": "## R10 — Trade-Off Transparency\n\nEvery feasible operational option should display its primary trade-off.\n\nExamples:\n\n### Reallocation\n\nBenefit:\n\n* Uses existing inventory.\n\nTrade-off:\n\n* Reduces stock at another warehouse.\n\n### Expedite\n\nBenefit:\n\n* May accelerate inbound replenishment.\n\nTrade-off:\n\n* Additional transportation cost.\n\n### Part-Ship\n\nBenefit:\n\n* Customer receives available quantity sooner.\n\nTrade-off:\n\n* Remaining quantity is delayed.\n\n### Customer Notification\n\nBenefit:\n\n* Improves customer transparency.\n\nTrade-off:\n\n* Customer may receive an uncertain revised delivery date.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R11",
+    "rule_id": "R11",
+    "title": "Recommendation Priority",
+    "content": "## R11 — Recommendation Priority\n\nWhen comparing options, SupplyGuard AI should prefer:\n\n1. Full shortage resolution with available inventory.\n2. The option with the highest fulfillment coverage.\n3. Inbound recovery options such as expediting.\n4. Partial shipment.\n5. Customer notification when no operational recovery option is sufficient.\n\nThe final recommendation must remain subject to human approval.\n\n---",
+    "source": "documents/response_playbook.md"
+  },
+  {
+    "chunk_id": "R12",
+    "rule_id": "R12",
+    "title": "No Invented Facts",
+    "content": "## R12 — No Invented Facts\n\nThe system must not invent:\n\n* Inventory quantities.\n* Shipment dates.\n* Transportation costs.\n* Customer commitments.\n* Supplier capabilities.\n* Delivery dates.\n\nIf required information is unavailable, the system must state that it is unavailable.",
+    "source": "documents/response_playbook.md"
+  }
+]
