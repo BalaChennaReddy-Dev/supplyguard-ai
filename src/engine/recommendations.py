@@ -1,4 +1,4 @@
-
+from engine.evidence import EvidenceEngine
 from pathlib import Path
 from typing import Any
 
@@ -52,6 +52,7 @@ class ResponseRecommendationEngine:
         self.orders = pd.read_csv(
             DATA_DIR / "orders.csv"
         )
+        self.evidence_engine = EvidenceEngine()
 
     # ==============================================================
     # EVIDENCE
@@ -850,9 +851,12 @@ class ResponseRecommendationEngine:
                 f"it provides the strongest deterministic response "
                 f"under the response playbook."
             )
-
+        evidence = self.evidence_engine.order_evidence(
+            order
+        )
         return {
             **evaluation,
+            "evidence": evidence,
 
             "recommended_action": (
                 recommendation["action"]
