@@ -1,0 +1,557 @@
+{
+  "notice": "Subject: Urgent Production Disruption – Alpha Components Ltd\n\nDear Supply Chain Team,\n\nAlpha Components Ltd has informed us that an unexpected equipment failure\nhas forced a temporary shutdown at its Chennai production facility.\n\nThe facility is expected to remain unavailable for approximately 10 days,\nstarting September 5, 2026.\n\nDuring this period, production and dispatches of Industrial Control Boards\nand Power Supply Modules may be delayed.\n\nOur logistics team is currently assessing the affected shipments and\ncustomer commitments.\n\nPlease review all open supply and customer orders associated with Alpha\nComponents and advise on potential mitigation options.\n\nRegards,\nSupplier Operations Team",
+  "analysis_date": "2026-09-05",
+  "extraction": {
+    "event_type": "production_shutdown",
+    "supplier_name": "Alpha Components Ltd",
+    "location": "Chennai",
+    "shipment_id": null,
+    "warehouse_name": null,
+    "start_date": "2026-09-05",
+    "duration_days": 10,
+    "affected_products": [
+      "Industrial Control Boards",
+      "Power Supply Modules"
+    ],
+    "description": "An unexpected equipment failure caused a temporary shutdown at Alpha Components Ltd's Chennai production facility, delaying production and dispatches.",
+    "confidence": 0.95,
+    "missing_information": [
+      "specific shipment IDs"
+    ]
+  },
+  "resolved": {
+    "supplier": {
+      "supplier_id": "SUP001",
+      "supplier_name": "Alpha Components Ltd",
+      "location": "Chennai India",
+      "reliability_score": 94,
+      "status": "active"
+    },
+    "products": [
+      {
+        "product_id": "PROD001",
+        "product_name": "Industrial Control Board",
+        "category": "Electronics",
+        "supplier_id": "SUP001",
+        "unit_cost": 12500
+      },
+      {
+        "product_id": "PROD002",
+        "product_name": "Power Supply Module",
+        "category": "Electronics",
+        "supplier_id": "SUP001",
+        "unit_cost": 6800
+      }
+    ],
+    "warehouse": null,
+    "shipment": null
+  },
+  "impact": {
+    "event_type": "production_shutdown",
+    "impact_found": true,
+    "impact_status": "confirmed_impact",
+    "reason": "The disruption is associated with operational dependencies and one or more customer orders have insufficient available inventory.",
+    "supplier": {
+      "supplier_id": "SUP001",
+      "supplier_name": "Alpha Components Ltd",
+      "location": "Chennai India",
+      "reliability_score": 94,
+      "status": "active"
+    },
+    "products": [
+      {
+        "product_id": "PROD001",
+        "product_name": "Industrial Control Board",
+        "category": "Electronics",
+        "supplier_id": "SUP001",
+        "unit_cost": 12500
+      },
+      {
+        "product_id": "PROD002",
+        "product_name": "Power Supply Module",
+        "category": "Electronics",
+        "supplier_id": "SUP001",
+        "unit_cost": 6800
+      }
+    ],
+    "warehouse": null,
+    "affected_shipments": [
+      {
+        "shipment_id": "SHIP001",
+        "supplier_id": "SUP001",
+        "product_id": "PROD001",
+        "warehouse_id": "WH001",
+        "quantity": 100,
+        "original_expected_date": "2026-09-08",
+        "projected_expected_date": null,
+        "risk_status": "potential_delay"
+      },
+      {
+        "shipment_id": "SHIP002",
+        "supplier_id": "SUP001",
+        "product_id": "PROD002",
+        "warehouse_id": "WH001",
+        "quantity": 150,
+        "original_expected_date": "2026-09-09",
+        "projected_expected_date": null,
+        "risk_status": "potential_delay"
+      }
+    ],
+    "inventory_summary": [
+      {
+        "warehouse_id": "WH001",
+        "product_id": "PROD001",
+        "quantity": 120,
+        "reserved_quantity": 80,
+        "available_quantity": 40
+      },
+      {
+        "warehouse_id": "WH001",
+        "product_id": "PROD002",
+        "quantity": 180,
+        "reserved_quantity": 70,
+        "available_quantity": 110
+      },
+      {
+        "warehouse_id": "WH002",
+        "product_id": "PROD001",
+        "quantity": 60,
+        "reserved_quantity": 40,
+        "available_quantity": 20
+      }
+    ],
+    "order_summary": [
+      {
+        "warehouse_id": "WH001",
+        "product_id": "PROD001",
+        "ordered_quantity": 80,
+        "available_quantity": 40,
+        "shortage_quantity": 40
+      },
+      {
+        "warehouse_id": "WH001",
+        "product_id": "PROD002",
+        "ordered_quantity": 80,
+        "available_quantity": 110,
+        "shortage_quantity": 0
+      },
+      {
+        "warehouse_id": "WH002",
+        "product_id": "PROD001",
+        "ordered_quantity": 20,
+        "available_quantity": 20,
+        "shortage_quantity": 0
+      }
+    ],
+    "at_risk_orders": [
+      {
+        "order_id": "ORD013",
+        "customer_id": "CUST002",
+        "customer_name": "Vertex Robotics",
+        "customer_type": "enterprise",
+        "service_level": "high",
+        "product_id": "PROD001",
+        "warehouse_id": "WH001",
+        "quantity": 50,
+        "fulfillable_quantity": 10,
+        "shortage_quantity": 40,
+        "required_date": "2026-09-10",
+        "order_date": "2026-09-04"
+      }
+    ],
+    "potentially_affected_orders": [],
+    "affected_customers": [
+      {
+        "customer_id": "CUST002",
+        "customer_name": "Vertex Robotics",
+        "customer_type": "enterprise",
+        "service_level": "high"
+      }
+    ],
+    "prioritized_orders": [
+      {
+        "order_id": "ORD013",
+        "customer_id": "CUST002",
+        "customer_name": "Vertex Robotics",
+        "customer_type": "enterprise",
+        "service_level": "high",
+        "product_id": "PROD001",
+        "warehouse_id": "WH001",
+        "quantity": 50.0,
+        "fulfillable_quantity": 10.0,
+        "shortage_quantity": 40.0,
+        "required_date": "2026-09-10",
+        "order_date": "2026-09-04",
+        "days_until_required": 5,
+        "priority_score": 79.0,
+        "priority": "HIGH",
+        "score_breakdown": {
+          "delivery_urgency": 24.5,
+          "service_level": 24.0,
+          "shortage_severity": 22.5,
+          "customer_type": 8.0
+        },
+        "reasons": [
+          "Required delivery date is approaching.",
+          "Customer has HIGH service level.",
+          "40 units are currently unavailable.",
+          "Customer is classified as ENTERPRISE."
+        ],
+        "evidence": [
+          {
+            "source": "orders.csv",
+            "record_id": "ORD013",
+            "fact": "Order ORD013 requires 50.0 units of PROD001 from warehouse WH001 by 2026-09-10."
+          },
+          {
+            "source": "inventory.csv",
+            "record_id": "WH001:PROD001",
+            "fact": "Warehouse WH001 currently has 10.0 units available for this order after existing reservations."
+          },
+          {
+            "source": "orders.csv",
+            "record_id": "ORD013",
+            "fact": "The order has a shortage of 40.0 units."
+          },
+          {
+            "source": "customers.csv",
+            "record_id": "CUST002",
+            "fact": "Customer CUST002 is associated with this affected order."
+          }
+        ]
+      }
+    ],
+    "impact_graph": {
+      "nodes": [
+        {
+          "id": "SUP001",
+          "type": "supplier",
+          "label": "Alpha Components Ltd",
+          "location": "Chennai India",
+          "reliability_score": 94,
+          "status": "active"
+        },
+        {
+          "id": "PROD001",
+          "type": "product",
+          "label": "Industrial Control Board",
+          "category": "Electronics",
+          "unit_cost": 12500
+        },
+        {
+          "id": "PROD002",
+          "type": "product",
+          "label": "Power Supply Module",
+          "category": "Electronics",
+          "unit_cost": 6800
+        },
+        {
+          "id": "WH001",
+          "type": "warehouse",
+          "label": "Chennai Central Warehouse",
+          "location": "Chennai India",
+          "capacity": 10000,
+          "status": "operational"
+        },
+        {
+          "id": "SHIP001",
+          "type": "shipment",
+          "label": "SHIP001",
+          "quantity": 100,
+          "risk_status": "potential_delay",
+          "original_expected_date": "2026-09-08",
+          "projected_expected_date": null
+        },
+        {
+          "id": "SHIP002",
+          "type": "shipment",
+          "label": "SHIP002",
+          "quantity": 150,
+          "risk_status": "potential_delay",
+          "original_expected_date": "2026-09-09",
+          "projected_expected_date": null
+        },
+        {
+          "id": "INV:WH001:PROD001",
+          "type": "inventory",
+          "label": "WH001 / PROD001",
+          "warehouse_id": "WH001",
+          "product_id": "PROD001",
+          "quantity": 120,
+          "reserved_quantity": 80,
+          "available_quantity": 40
+        },
+        {
+          "id": "INV:WH001:PROD002",
+          "type": "inventory",
+          "label": "WH001 / PROD002",
+          "warehouse_id": "WH001",
+          "product_id": "PROD002",
+          "quantity": 180,
+          "reserved_quantity": 70,
+          "available_quantity": 110
+        },
+        {
+          "id": "WH002",
+          "type": "warehouse",
+          "label": "Bengaluru Distribution Center",
+          "location": "Bengaluru India",
+          "capacity": 8000,
+          "status": "operational"
+        },
+        {
+          "id": "INV:WH002:PROD001",
+          "type": "inventory",
+          "label": "WH002 / PROD001",
+          "warehouse_id": "WH002",
+          "product_id": "PROD001",
+          "quantity": 60,
+          "reserved_quantity": 40,
+          "available_quantity": 20
+        },
+        {
+          "id": "ORD013",
+          "type": "order",
+          "label": "ORD013",
+          "priority": "HIGH",
+          "priority_score": 79.0,
+          "quantity": 50.0,
+          "fulfillable_quantity": 10.0,
+          "shortage_quantity": 40.0,
+          "required_date": "2026-09-10"
+        },
+        {
+          "id": "CUST002",
+          "type": "customer",
+          "label": "Vertex Robotics",
+          "customer_type": "enterprise",
+          "service_level": "high"
+        }
+      ],
+      "edges": [
+        {
+          "source": "SUP001",
+          "target": "PROD001",
+          "relationship": "SUPPLIES"
+        },
+        {
+          "source": "SUP001",
+          "target": "PROD002",
+          "relationship": "SUPPLIES"
+        },
+        {
+          "source": "PROD001",
+          "target": "SHIP001",
+          "relationship": "SHIPPED_AS"
+        },
+        {
+          "source": "SHIP001",
+          "target": "WH001",
+          "relationship": "DELIVERS_TO"
+        },
+        {
+          "source": "PROD002",
+          "target": "SHIP002",
+          "relationship": "SHIPPED_AS"
+        },
+        {
+          "source": "SHIP002",
+          "target": "WH001",
+          "relationship": "DELIVERS_TO"
+        },
+        {
+          "source": "WH001",
+          "target": "INV:WH001:PROD001",
+          "relationship": "STORES"
+        },
+        {
+          "source": "INV:WH001:PROD001",
+          "target": "PROD001",
+          "relationship": "STOCKS"
+        },
+        {
+          "source": "WH001",
+          "target": "INV:WH001:PROD002",
+          "relationship": "STORES"
+        },
+        {
+          "source": "INV:WH001:PROD002",
+          "target": "PROD002",
+          "relationship": "STOCKS"
+        },
+        {
+          "source": "WH002",
+          "target": "INV:WH002:PROD001",
+          "relationship": "STORES"
+        },
+        {
+          "source": "INV:WH002:PROD001",
+          "target": "PROD001",
+          "relationship": "STOCKS"
+        },
+        {
+          "source": "PROD001",
+          "target": "ORD013",
+          "relationship": "FULFILLS"
+        },
+        {
+          "source": "WH001",
+          "target": "ORD013",
+          "relationship": "SERVES"
+        },
+        {
+          "source": "ORD013",
+          "target": "CUST002",
+          "relationship": "PLACED_BY"
+        }
+      ],
+      "node_count": 12,
+      "edge_count": 15
+    }
+  },
+  "recommendations": [
+    {
+      "order_id": "ORD013",
+      "customer_id": "CUST002",
+      "customer_name": "Vertex Robotics",
+      "product_id": "PROD001",
+      "warehouse_id": "WH001",
+      "quantity": 50.0,
+      "fulfillable_quantity": 10.0,
+      "shortage_quantity": 40.0,
+      "priority": "HIGH",
+      "priority_score": 79.0,
+      "options": [
+        {
+          "action": "REALLOCATE",
+          "feasible": true,
+          "coverage_quantity": 20.0,
+          "coverage_percentage": 50.0,
+          "fully_resolves_shortage": false,
+          "source_warehouse": "WH002",
+          "policy_rule": "R02",
+          "reason": "20 units can be reallocated from WH002, covering 50.0% of the shortage.",
+          "trade_off": "Reallocation leaves 20 units of shortage unresolved and reduces available stock at WH002.",
+          "evidence": [
+            {
+              "source": "inventory.csv",
+              "record_id": "WH002/PROD001",
+              "detail": "20 units available at WH002 after reserved stock."
+            },
+            {
+              "source": "orders.csv",
+              "record_id": "ORD013",
+              "detail": "Order requires 40 additional units."
+            }
+          ]
+        },
+        {
+          "action": "EXPEDITE",
+          "feasible": false,
+          "policy_rule": "R03",
+          "shipment_id": "SHIP001",
+          "shipment_quantity": 100.0,
+          "expected_date": "2026-09-08",
+          "required_date": "2026-09-10",
+          "expected_before_required": true,
+          "reason": "Shipment SHIP001 is already expected on 2026-09-08, before or on the customer's required date of 2026-09-10. Expediting is therefore not currently necessary.",
+          "trade_off": "Expediting would introduce potential transportation cost without an identified delivery-date benefit.",
+          "evidence": [
+            {
+              "source": "shipments.csv",
+              "record_id": "SHIP001",
+              "detail": "100 units of PROD001 are in transit to WH001, currently expected on 2026-09-08."
+            },
+            {
+              "source": "orders.csv",
+              "record_id": "ORD013",
+              "detail": "Customer requires delivery by 2026-09-10."
+            }
+          ]
+        },
+        {
+          "action": "PART_SHIP",
+          "feasible": true,
+          "coverage_quantity": 10.0,
+          "coverage_percentage": 20.0,
+          "remaining_quantity": 40.0,
+          "policy_rule": "R04",
+          "reason": "10 of 50 units can be shipped immediately, covering 20.0% of the order.",
+          "trade_off": "The customer receives 10 units now, but the remaining 40 units require later fulfillment.",
+          "evidence": [
+            {
+              "source": "orders.csv",
+              "record_id": "ORD013",
+              "detail": "Order quantity is 50; 10 units are currently fulfillable."
+            }
+          ]
+        },
+        {
+          "action": "NOTIFY_CUSTOMER",
+          "feasible": true,
+          "policy_rule": "R05",
+          "reason": "Customer communication should be considered because the order cannot currently be fulfilled in full.",
+          "trade_off": "Early notification improves transparency but may require communicating an uncertain revised delivery date.",
+          "evidence": [
+            {
+              "source": "orders.csv",
+              "record_id": "ORD013",
+              "detail": "Order has a shortage of 40 units against a required date of 2026-09-10."
+            }
+          ]
+        }
+      ],
+      "feasible_option_count": 3,
+      "evidence": [
+        {
+          "source": "orders.csv",
+          "record_id": "ORD013",
+          "fact": "Order ORD013 requires 50.0 units of PROD001 from warehouse WH001 by 2026-09-10."
+        },
+        {
+          "source": "inventory.csv",
+          "record_id": "WH001:PROD001",
+          "fact": "Warehouse WH001 currently has 10.0 units available for this order after existing reservations."
+        },
+        {
+          "source": "orders.csv",
+          "record_id": "ORD013",
+          "fact": "The order has a shortage of 40.0 units."
+        },
+        {
+          "source": "customers.csv",
+          "record_id": "CUST002",
+          "fact": "Customer CUST002 is associated with this affected order."
+        }
+      ],
+      "recommended_action": "REALLOCATE",
+      "recommendation": {
+        "action": "REALLOCATE",
+        "feasible": true,
+        "coverage_quantity": 20.0,
+        "coverage_percentage": 50.0,
+        "fully_resolves_shortage": false,
+        "source_warehouse": "WH002",
+        "policy_rule": "R02",
+        "reason": "20 units can be reallocated from WH002, covering 50.0% of the shortage.",
+        "trade_off": "Reallocation leaves 20 units of shortage unresolved and reduces available stock at WH002.",
+        "evidence": [
+          {
+            "source": "inventory.csv",
+            "record_id": "WH002/PROD001",
+            "detail": "20 units available at WH002 after reserved stock."
+          },
+          {
+            "source": "orders.csv",
+            "record_id": "ORD013",
+            "detail": "Order requires 40 additional units."
+          }
+        ],
+        "decision_score": 50.0
+      },
+      "recommendation_reason": "REALLOCATE selected because it provides the strongest deterministic response under the response playbook.",
+      "requires_human_approval": true,
+      "evidence_required": true
+    }
+  ]
+}

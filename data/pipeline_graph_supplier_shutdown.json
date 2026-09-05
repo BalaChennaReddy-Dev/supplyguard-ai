@@ -148,6 +148,28 @@
         "Customer has HIGH service level.",
         "40 units are currently unavailable.",
         "Customer is classified as ENTERPRISE."
+      ],
+      "evidence": [
+        {
+          "source": "orders.csv",
+          "record_id": "ORD013",
+          "fact": "Order ORD013 requires 50.0 units of PROD001 from warehouse WH001 by 2026-09-10."
+        },
+        {
+          "source": "inventory.csv",
+          "record_id": "WH001:PROD001",
+          "fact": "Warehouse WH001 currently has 10.0 units available for this order after existing reservations."
+        },
+        {
+          "source": "orders.csv",
+          "record_id": "ORD013",
+          "fact": "The order has a shortage of 40.0 units."
+        },
+        {
+          "source": "customers.csv",
+          "record_id": "CUST002",
+          "fact": "Customer CUST002 is associated with this affected order."
+        }
       ]
     }
   ],
