@@ -1,0 +1,11 @@
+customer_id,customer_name,customer_type,region,service_level
+CUST001,Orion Manufacturing,strategic,South India,critical
+CUST002,Vertex Robotics,enterprise,South India,high
+CUST003,Nova Automation,enterprise,West India,high
+CUST004,GreenField Industries,standard,South India,medium
+CUST005,BluePeak Systems,strategic,West India,critical
+CUST006,Metro Industrial Works,standard,South India,medium
+CUST007,FutureTech Manufacturing,enterprise,North India,high
+CUST008,Prime Engineering Solutions,standard,South India,medium
+CUST009,Apex Industrial Group,strategic,West India,critical
+CUST010,Delta Machinery,standard,North India,medium
